@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Comparador de Impressões Digitais</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <h1>COMPARADOR DE IMPRESSÕES DIGITAIS</h1>
+        <div id="result" class="result"></div>
+        
+        <!-- Seção Principal com os Quadrantes -->
+        <div class="main-content">
+            <!-- Quadrado 1: Digital A -->
+            <div class="quadrado" id="quadrado1">
+                <h2>Digital Alvo</h2>
+                <canvas id="imageA" width="350" height="350"></canvas>
+            </div>
+            
+            <!-- Quadrado 2: Digital B -->
+            <div class="quadrado" id="quadrado2">
+                <h2>Digital Selecionada</h2>
+                <canvas id="imageB" width="350" height="350"></canvas>
+            </div>
+            
+            <!-- Quadrado 3: Banco de Digitais -->
+            <div class="quadrado" id="quadrado3">
+                <h2>BANCO DE DIGITAIS</h2>
+                <div class="banco-digitais">
+                    <div id="thumbnails"></div>
+                </div>
+            </div>
+            
+            <!-- Quadrado 4: Correspondências -->
+            <div class="quadrado" id="quadrado4">
+                <h2>Análise</h2>
+                <canvas id="matchesCanvas" width="800" height="400"></canvas>
+            </div>
+        </div>
+        
+        <!-- Botão de Calcular e Resultado -->
+        <div class="actions">
+            <button id="calculateBtn">CALCULAR</button>
+        </div>
+    </div>
+
+    <!-- QWebChannel Script -->
+    <script src="qrc:///qtwebchannel/qwebchannel.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>

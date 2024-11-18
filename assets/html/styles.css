@@ -1,0 +1,259 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto Mono', monospace;
+    background-color: #121212; /* Fundo ainda mais escuro */
+    color: #e0e0e0; /* Texto claro para contraste */
+    margin: 0;
+    padding: 20px;
+    background-image: linear-gradient(135deg, #1e1e1e 25%, #121212 25%, #121212 50%, #1e1e1e 50%, #1e1e1e 75%, #121212 75%, #121212 100%);
+    background-size: 56.57px 56.57px; /* Padrão diagonal */
+}
+
+.main-container {
+    max-width: 1600px;
+    margin: auto;
+    padding: 20px;
+    border: 2px solid #00BFFF;
+    border-radius: 10px;
+    background-color: #1e1e1e;
+    box-shadow: 0 0 20px rgba(0, 191, 255, 0.2);
+    position: relative;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #00FF7F; /* Verde néon para destaque */
+    text-shadow: 3px 3px 6px #000;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5em;
+    letter-spacing: 2px;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* Estilo dos Quadrados */
+.quadrado {
+    background-color: #1a1a1a;
+    border: 2px solid #00FF7F;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 255, 127, 0.3);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.quadrado::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    /* background: linear-gradient(45deg, rgba(0, 255, 127, 0.2) 25%, transparent 25%, transparent 50%, rgba(0, 255, 127, 0.2) 50%, rgba(0, 255, 127, 0.2) 75%, transparent 75%, transparent); */
+    background-size: 100px 100px;
+    animation: moveBackground 10s linear infinite;
+    z-index: 0;
+}
+
+/* @keyframes moveBackground {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+} */
+
+.quadrado:hover {
+    border-color: #00FF00;
+    box-shadow: 0 6px 20px rgba(0, 255, 127, 0.5);
+    transform: scale(1.02);
+}
+
+.quadrado h2 {
+    margin-bottom: 15px;
+    color: #00FF7F;
+    text-shadow: 2px 2px 4px #000;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8em;
+}
+
+canvas {
+    border: none;
+    border-radius: 8px;
+    background-color: #121212;
+    box-shadow: inset 0 0 10px rgba(0, 255, 127, 0.3);
+}
+
+/* Quadrado 3: Banco de Digitais */
+#quadrado3 .banco-digitais {
+    width: 100%;
+    height: 600px;
+    overflow-y: auto;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #1a1a1a;
+    box-shadow: inset 0 0 10px rgba(0, 255, 127, 0.2);
+}
+
+#thumbnails {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 15px;
+}
+
+.thumbnail {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #00FF7F;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #2e2e2e;
+    transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.thumbnail::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(0, 255, 127, 0.2), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.thumbnail:hover::after {
+    opacity: 1;
+}
+
+.thumbnail:hover {
+    border-color: #00FF00;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 255, 127, 0.5);
+}
+
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    opacity: 0.8;
+}
+
+.thumbnail img:hover {
+    opacity: 1;
+}
+
+/* Seção de Correspondências */
+#quadrado4 .matches-section {
+    width: 100%;
+}
+
+.matches-section h2 {
+    margin-bottom: 15px;
+    color: #00FF7F;
+    text-shadow: 2px 2px 4px #000;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8em;
+}
+
+/* Botão de Calcular e Resultado */
+.actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #00FF7F;
+    color: #1e1e1e;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 255, 127, 0.4);
+    font-family: 'Roboto Mono', monospace;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    background-color: #00FF00;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 255, 127, 0.6);
+}
+
+.result {
+    font-size: 20px;
+    color: #e0e0e0;
+    display: none;
+    padding: 15px 25px;
+    border-radius: 5px;
+    background-color: #2e2e2e;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+    font-family: 'Roboto Mono', monospace;
+}
+
+/* Ocultar o Quadrado 4 Inicialmente */
+#quadrado4 {
+    display: none;
+}
+
+/* Transições Suaves */
+.quadrado, .matches-section, .banco-digitais, #calculateBtn, #result {
+    transition: all 0.5s ease;
+}
+
+/* Ajustes Responsivos */
+@media (max-width: 800px) {
+    .quadrado {
+        flex: 1 1 100%;
+    }
+
+    #quadrado3 .banco-digitais {
+        height: 250px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    button {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+}
